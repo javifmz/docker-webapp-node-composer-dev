@@ -1,4 +1,4 @@
-# DNC Webapp for development
+# DNC Webapp
 
 `📖 DNC = Docker-Node-Composer`
 
