@@ -55,7 +55,7 @@ docker run --rm -it \
   -e "API_PORT=8081" \
   -e "WEB_PORT=8080" \
   -p "8080:80"
-  webapp-dnc
+  javifmz/webapp-dnc
 ```
 
 ## Image at Docker Hub
