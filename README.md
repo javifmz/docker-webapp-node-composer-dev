@@ -2,17 +2,23 @@
 
 `📖 DNC = Docker-Node-Composer`
 
-A minimal **Docker** image to develop web apps with **Node.js** for the front-end (_web_) and **Composer** for the back-end (_api_).
+A minimal **Docker** image to run or develop web apps with **Node.js** for the front-end (_web_) and **Composer** for the back-end (_api_).
 
-To work with this image, it is mandatory to mount the _web_ directory as a volume in `/webapp/web` and the _api_ directory as a volume in `/webapp/api`. 
+### Configuring the webapp
 
-_Web_ and _api_ development ports can be also overrided using the `WEB_PORT` and `API_PORT` respectively.
+To work with this image, put your _web_ files in the `/webapp/web` directory and your _api_ files in the `/webapp/api` directory.
 
-The exposed port is `80`. If this port is published (for example) to port `8080`, the _web_ would be accessible at the URL `localhost:8080` and the _api_ at the URL `localhost:8080/api/`.
+If the _web_ and _api_ ports of your webapp are different from the default ones (`8080` for _web_ and `8081` for _api_), they can be overriden using the `WEB_PORT` and `API_PORT` environment variables respectively.
 
-Optionally, the `node_modules` and `vendor` folders can also be mounted as volumes. The `docker-compose.yml` shows an example of its usage.
+### Accesing the webapp
 
-## Usage with docker-compose
+The _web_ is accesible at the root path (`localhost`), and the _api_ at the `/api` path (`localhost/api`). This path can also be overriden using the `API_PATH` enviroment variable.
+
+> If the desired path for the _api_ is `/rest`, set the `API_PATH` environment variable to `rest` without slashes (`API_PATH=rest`).
+
+The exposed port is `80`.
+
+### Example of usage with docker-compose
 
 ```yml
 services:
@@ -37,8 +43,7 @@ docker-compose up -d
 docker-compose down
 ```
 
-
-## Usage without docker-compse
+### Usage without docker-compse
 
 ```bash
 docker run --rm -it \
