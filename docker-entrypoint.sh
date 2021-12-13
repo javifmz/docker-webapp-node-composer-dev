@@ -8,11 +8,11 @@ cat /webapp/nginx.conf \
  > /etc/nginx/conf.d/nginx.conf
 nginx -g 'daemon on;'
 
-echo 'Starting node...'
-cd /webapp/web && yarn serve &
-
 echo 'Starting composer...'
-cd /webapp/api && composer start &
+cd /webapp/api && eval "$COMMAND_START_COMPOSER" &
+
+echo 'Starting node...'
+cd /webapp/web && eval "$COMMAND_START_NODE" &
 
 echo 'Wait for any process to exit'
 wait -n

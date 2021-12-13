@@ -15,6 +15,8 @@ RUN mv /docker-entrypoint.sh /entrypoint.sh && \
 ENV WEB_PORT 8080
 ENV API_PORT 8081
 ENV API_PATH api
+ENV COMMAND_START_NODE "yarn install && yarn serve"
+ENV COMMAND_START_NODE "composer update && composer start"
 EXPOSE 80
 STOPSIGNAL SIGTERM
 ENTRYPOINT [ "/entrypoint.sh" ]
