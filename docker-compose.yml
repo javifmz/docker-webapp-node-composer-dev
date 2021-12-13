@@ -7,8 +7,8 @@ services:
     volumes:
       - ./api:/webapp/api
       - ./web:/webapp/web
-      - /webapp/vendor
-      - /webapp/node_modules
+      - /webapp/api/vendor
+      - /webapp/web/node_modules
     ports:
       - 8080:80
     environment:
